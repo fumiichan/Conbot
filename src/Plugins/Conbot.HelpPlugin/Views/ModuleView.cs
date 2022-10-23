@@ -12,8 +12,9 @@ using Disqord.Extensions.Interactivity.Menus;
 using Disqord.Rest;
 
 using Qmmands;
-
+using Qommon;
 using Qommon.Collections;
+using Qommon.Collections.ReadOnly;
 
 namespace Conbot.HelpPlugin;
 
@@ -193,7 +194,12 @@ public class ModuleView : ViewBase
 
     public ValueTask OnSubcommandSelectionAsync(SelectionEventArgs e)
     {
-        if (!_subcommands.TryGetValue(e.SelectedOptions[0].Value, out object? subcommand))
+        if (e.SelectedOptions[0]?.Value is null)
+        {
+            return default;
+        }
+
+        if (!_subcommands.TryGetValue(e.SelectedOptions[0].Value.ToString(), out object? subcommand))
         {
             return default;
         }

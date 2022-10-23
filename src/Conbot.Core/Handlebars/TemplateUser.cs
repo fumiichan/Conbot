@@ -1,4 +1,5 @@
 using Disqord;
+using Qommon;
 
 namespace Conbot;
 

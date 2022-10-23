@@ -69,7 +69,7 @@ public class ArgumentInputView : ViewBase
 
     public ValueTask OnChoiceSelectionAsync(SelectionEventArgs e)
     {
-        Result = e.SelectedOptions[0].Value;
+        Result = e.SelectedOptions[0]?.Value.ToString();
         DisableComponents();
 
         return default;

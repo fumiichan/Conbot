@@ -12,6 +12,7 @@ using Disqord.Extensions.Interactivity.Menus;
 using Disqord.Rest;
 
 using Qmmands;
+using Qommon;
 
 namespace Conbot.HelpPlugin;
 
@@ -89,7 +90,7 @@ public class StartView : ViewBase
 
     public ValueTask OnModuleSelectionAsync(SelectionEventArgs e)
     {
-        string? selection = e.SelectedOptions[0].Value;
+        string? selection = e.SelectedOptions[0]?.Value.ToString();
         var module = _modules.First(x => x.Name == selection);
         Menu.View = new ModuleView(module, this, TemplateMessage);
 

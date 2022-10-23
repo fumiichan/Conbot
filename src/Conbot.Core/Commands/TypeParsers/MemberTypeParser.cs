@@ -10,6 +10,7 @@ using Disqord.Rest;
 using Qmmands;
 
 using Qommon.Collections;
+using Qommon.Collections.ReadOnly;
 
 namespace Conbot.Commands;
 
